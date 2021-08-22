@@ -65,11 +65,12 @@ def getCustomers(data):
     for customer in customers:
         transformData(customer['name'], customer['card'])
 
-def createNewCustomer():
+def createNewCustomer(customer):
     curs = connection.cursor()
-            curs.execute(
-                "insert into taskManager_file ('name','path','project_id') values ('%s','%s',%s)" %
-                (name, upload_path, project_id))
+    name = customer['name']
+    card = customer['card']
+    id = customer['id']
+    curs.execute("insert into customers ('name','card','id') values ('%s','%s',%s)" %(name, card, id))
 
 exec()
 
