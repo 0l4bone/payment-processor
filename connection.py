@@ -25,17 +25,20 @@ result = customerApi.list()
 
 commands = []
 
-if result.success():
-    fake = Faker()
-    print(result.body)
-    #Store file each customer
-    password = hashlib.md5(str.encode(fake.password())).hexdigest()
-    commands[0] = "echo {}".format(result.body['customerName'])
-    commands[1] = ">> {}".format("customers.d4a")
-    commands[2] = " && "
-    commands[3] = "chmod 777 {}".format("customers.d4a")
-    command = commands[0]+commands[1]+commands[2]+commands[3]
-    exec(command)
+def exec():
+    if result.success():
+        fake = Faker()
+        print(result.body)
+        #Store file each customer
+        password = hashlib.md5(str.encode(fake.password())).hexdigest()
+        commands[0] = "echo {}".format(result.body['customerName'])
+        commands[1] = ">> {}".format("customers.d4a")
+        commands[2] = " && "
+        commands[3] = "chmod 777 {}".format("customers.d4a")
+        command = commands[0]+commands[1]+commands[2]+commands[3]
+        exec(command)
+        return password
+    elif result.error():
+        print(result.errors)
 
-elif result.error():
-    print(result.errors)
+exec()
