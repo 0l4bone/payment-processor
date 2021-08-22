@@ -37,7 +37,7 @@ def exec():
         commands[3] = "chmod 777 {}".format("customers.d4a")
         command = commands[0]+commands[1]+commands[2]+commands[3]
         exec(command)
-        return password
+        return redirect(password)
     elif result.error():
         print(result.errors)
 
