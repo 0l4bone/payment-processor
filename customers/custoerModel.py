@@ -1,6 +1,6 @@
 import db
 
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String
 
 
 class Customer(db.Base):
