@@ -1,10 +1,16 @@
+#REQUIRED IMPORTS
+import os
+import sys
+import boto3
+import sqlite3
+import requests
+
 from requests.api import head
 from square.client import Client
 from square.configuration import Configuration
-import os
-import sys
 
-import boto3
+
+
 from faker import Faker
 from huepy import *
 from time import sleep
@@ -12,9 +18,9 @@ import sys
 import hashlib
 from django.db import connection
 
-import sqlite3
+
 from sqlite3 import Error
-import requests
+
 
 # This code is open and you can edit All you need 
 
