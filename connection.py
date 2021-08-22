@@ -1,9 +1,10 @@
 #REQUIRED IMPORTS
 import os
-import sys
 import boto3
 import sqlite3
 import requests
+import sys
+import hashlib
 
 from requests.api import head
 from square.client import Client
@@ -14,8 +15,7 @@ from square.configuration import Configuration
 from faker import Faker
 from huepy import *
 from time import sleep
-import sys
-import hashlib
+
 from django.db import connection
 
 
