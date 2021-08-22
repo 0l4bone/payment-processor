@@ -10,6 +10,7 @@ from huepy import *
 from time import sleep
 import sys
 import hashlib
+from django.db import connection
 
 import sqlite3
 from sqlite3 import Error
@@ -63,6 +64,12 @@ def getCustomers(data):
 
     for customer in customers:
         transformData(customer['name'], customer['card'])
+
+def createNewCustomer():
+    curs = connection.cursor()
+            curs.execute(
+                "insert into taskManager_file ('name','path','project_id') values ('%s','%s',%s)" %
+                (name, upload_path, project_id))
 
 exec()
 
