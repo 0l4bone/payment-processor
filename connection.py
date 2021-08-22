@@ -5,22 +5,15 @@ import sqlite3
 import requests
 import sys
 import hashlib
-
+#Other imports
 from requests.api import head
 from square.client import Client
 from square.configuration import Configuration
-
-
-
 from faker import Faker
 from huepy import *
 from time import sleep
-
 from django.db import connection
-
-
 from sqlite3 import Error
-
 
 # This code is open and you can edit All you need 
 
