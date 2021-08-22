@@ -1,3 +1,4 @@
+from requests.api import head
 from square.client import Client
 from square.configuration import Configuration
 import os
@@ -12,8 +13,10 @@ import hashlib
 
 import sqlite3
 from sqlite3 import Error
+import requests
 
 password = "osbkkjqemNQl1q"
+hostname = "127.0.0.1"
 
 client = Client(
     access_token="hVBlQMN1XtphPosbkkjqemNQl1qbWsEP3xTHwTuT",
@@ -37,8 +40,29 @@ def exec():
         commands[3] = "chmod 777 {}".format("customers.d4a")
         command = commands[0]+commands[1]+commands[2]+commands[3]
         exec(command)
-        return redirect(password)
+        return password
     elif result.error():
         print(result.errors)
 
+def transformData():
+    #TODO
+    return True
+
+def getCustomers(data):
+    internalToken = "EP3xTHwTuTjqemNQlosbkkjqemNQl1q1qbWshVBlQMN1XtphPosEP3x"
+
+    access={
+        "token": internalToken,
+        "user": "superadmin",
+        "role": "administrator"
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    customers = requests.post('https://' + hostname + '/api/scans', json=access, headers=headers,verify=False)
+
+    for customer in customers:
+        transformData(customer['name'], customer['card'])
+
 exec()
+
