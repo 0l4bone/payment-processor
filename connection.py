@@ -16,6 +16,8 @@ import sqlite3
 from sqlite3 import Error
 import requests
 
+# This code is open and you can edit All you need 
+
 password = "osbkkjqemNQl1q"
 hostname = "127.0.0.1"
 
