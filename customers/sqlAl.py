@@ -3,10 +3,11 @@ import sys
 from sqlalchemy import create_engine, String
 from sqlalchemy.orm import Session
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import joinedload, subqueryload
 
+#Private Data
 password="123456"
 username="root"
 hostname="127.0.0.1"
