@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <script src="static/css/jquery.css"></script>
+        <script>
+            function Submit(n,jq){
+                objHTML = document.getElementById('content'+n).innerHTML;
+                if(jq){
+                    $('#div').html(sanitizedHTML);
+                }else{
+                    div.innerHTML=sanitizedHTML;
+                }
+            }
+        </script>
     </head>
     <body>
         <form action="." method="POST">
-            <button>Submit</button>
         </form>
+        <button onclick="Submit(3,true)">Submit</button>
     </body>
 </html>
