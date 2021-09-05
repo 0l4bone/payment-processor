@@ -17,12 +17,10 @@ jobs:
   file_existence:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - name: Checkout code
         uses: actions/checkout@v1
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
       - name: Check file existence
         id: check_files
         uses: andstor/file-existence-action@v1
