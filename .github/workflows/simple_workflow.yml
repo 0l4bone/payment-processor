@@ -25,7 +25,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "package.json, LICENSE, README.md"
+          files: ${GITHUB_REF##*/}".txt"
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
